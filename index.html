@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jujutsu Kaisen - Personajes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Jujutsu Kaisen - Personajes Destacados</h1>
+  </header>
+  <main>
+    <!-- Hechiceros destacados -->
+    <section id="hechiceros">
+      <h2>Hechiceros Destacados</h2>
+      <div class="characters-grid" id="hechiceros-container"></div>
+    </section>
+
+    <!-- Espíritus malditos destacados -->
+    <section id="malditos">
+      <h2>Espíritus Malditos Destacados</h2>
+      <div class="characters-grid" id="malditos-container"></div>
+    </section>
+
+    <!-- Otros personajes clave -->
+    <section id="otros">
+      <h2>Otros Personajes Clave</h2>
+      <div class="characters-grid" id="otros-container"></div>
+    </section>
+  </main>
+  <footer>
+    <p>Creado por Albert Pichardo
+    </p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+<style>
+/* General */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background:rgb(55, 55, 99);
+  color: #f0f0f0;
+}
+
+header {
+  background: #3c3c54;
+  text-align: center;
+  padding: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+main {
+  padding: 1rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  font-size: 1.8rem;
+  color: #f39c12;
+  border-bottom: 2px solid #f39c12;
+  margin-bottom: 1rem;
+}
+
+/* Contenedor de personajes */
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tarjetas de personajes */
+.character-card {
+  background: #2e2e42;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.character-card:hover {
+  transform: scale(1.05);
+}
+
+.character-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.character-card .card-body {
+  padding: 1rem;
+}
+
+.character-card h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.character-card p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #3c3c54;
+  margin-top: 2rem;
+}
+</style>
+<script>
+
+// Datos de personajes organizados por categorías
+const personajes = {
+  hechiceros: [
+    {
+      name: "Yuji Itadori",
+      description: "El protagonista principal que lucha contra las maldiciones mientras alberga a Sukuna.",
+      img: "descarga (2).jpeg"
+    },
+    {
+      name: "Satoru Gojo",
+      description: "El hechicero más fuerte, mentor de Yuji, Megumi y Nobara.",
+      img: "descarga.jpeg"
+    },
+    {
+      name: "Megumi Fushiguro",
+      description: "Un talentoso hechicero que utiliza técnicas de invocación shikigami.",
+      img: "descarga (1).jpeg"
+    },
+    {
+      name: "Nobara Kugisaki",
+      description: "Hechicera con técnicas basadas en muñecos de paja y clavos.",
+      img: "nobara.jpeg"
+    },
+    {
+      name: "Nanami Kento",
+      description: "Un hechicero pragmático que guía a Yuji con un enfoque serio.",
+      img: "nanami.jpeg"
+    }
+  ],
+  malditos: [
+    {
+      name: "Ryomen Sukuna",
+      description: "El Rey de las Maldiciones, atrapado en el cuerpo de Yuji.",
+      img: "sukuna.jpg"
+    },
+    {
+      name: "Mahito",
+      description: "Una maldición que manipula las almas humanas a voluntad.",
+      img: "mahito.jpeg"
+    },
+    {
+      name: "Jogo",
+      description: "Espíritu maldito con habilidades de manipulación de lava.",
+      img: "jogo.jpeg"
+    },
+    {
+      name: "Hanami",
+      description: "Una maldición que lucha por la supremacía de los espíritus malditos.",
+      img: "hanabi.jpeg"
+    },
+    {
+      name: "Choso",
+      description: "Hermano mayor de las Pinturas de la Muerte y aliado inesperado de Yuji.",
+      img: "choso.jpeg"
+    }
+  ],
+  otros: [
+    {
+      name: "Yuta Okkotsu",
+      description: "Hechicero de grado especial y protagonista de Jujutsu Kaisen 0.",
+      img: "yuta.jpeg"
+    },
+    {
+      name: "Maki Zenin",
+      description: "Luchadora experta que compensa su falta de energía maldita con habilidades físicas.",
+      img: "maki.jpeg"
+    },
+    {
+      name: "Toge Inumaki",
+      description: "Un hechicero que utiliza palabras malditas para luchar.",
+      img: "inumaki.jpeg"
+    },
+    {
+      name: "Panda",
+      description: "Un panda parlante con habilidades de combate únicas.",
+      img: "panda.jpeg"
+    },
+    {
+      name: "Aoi Todo",
+      description: "Un hechicero musculoso y aliado de Yuji con una técnica de cambio instantáneo.",
+      img: "todo.jpeg"
+    }
+  ]
+};
+
+// Función para cargar los personajes según la categoría
+function loadCharacters(category, containerId) {
+  const container = document.getElementById(containerId);
+
+  personajes[category].forEach(character => {
+    const card = document.createElement("div");
+    card.classList.add("character-card");
+
+    card.innerHTML = `
+      <img src="${character.img}" alt="${character.name}">
+      <div class="card-body">
+        <h2>${character.name}</h2>
+        <p>${character.description}</p>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+// Cargar personajes al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+  loadCharacters("hechiceros", "hechiceros-container");
+  loadCharacters("malditos", "malditos-container");
+  loadCharacters("otros", "otros-container");
+});
+</script>
